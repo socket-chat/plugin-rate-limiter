@@ -1,0 +1,24 @@
+{
+  "name": "socket-chat-rate-limiter",
+  "description": "rate limiting utilities",
+  "license": "MIT",
+  "version": "0.0.1",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/socket-chat/plugin-rate-limiter.git"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/babel src -d lib",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0"
+  },
+  "dependencies": {
+    "lodash": "^4.5.0",
+    "redis": "^2.4.2"
+  }
+}
