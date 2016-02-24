@@ -45,7 +45,7 @@ export class RateLimiter {
                 // set the lockout key with the timestamp it will expire
                 .set(key + ':lockout', Date.now() + (decaySeconds * 1000), decaySeconds)
                 .then(() => {
-                  throw new Error('Rate limit [' + maxAttempts + '] for key [' + key + '] has been exceeded!')
+                  return true
                 })
             }
 
