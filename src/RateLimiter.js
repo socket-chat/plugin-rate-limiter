@@ -22,7 +22,7 @@ export class RateLimiter {
   }
 
   hit(key, decaySeconds = 5) {
-    return this.cache.add(key, 1, decaySeconds)
+    return this.cache.add(key, 0, decaySeconds)
       .then(() => this.cache.increment(key, decaySeconds))
   }
 
