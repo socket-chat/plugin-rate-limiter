@@ -1,13 +1,20 @@
 import { Cache } from './Cache'
 
 export class RateLimiter {
-  constructor(keyPrefix = '') {
-    let prefix = 'chat:rate-limit'
+  constructor({
+    keyPrefix = '',
+    client = null
+  } = {}) {
+    let prefix = 'chat:rate-limit:'
     if (keyPrefix) {
       prefix += ':' + keyPrefix
     }
 
-    this.cache = Cache.make(prefix)
+    if (client) {
+      this.cache = new Cache({ keyPrefix: prefix, client })
+    } else {
+      this.cache = Cache.make(prefix)
+    }
   }
 
   attempts(key) {
